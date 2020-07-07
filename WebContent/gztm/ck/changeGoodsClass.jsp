@@ -29,14 +29,15 @@
     
     <div class="formtitle"><span>基本信息</span></div>
     
+    <form action="categoryChangeServlet2">
     <ul class="forminfo">
-    <li><label>产品分类序号<span>*</span></label><input name="" type="text" class="dfinput" /><span class="remind">标题不能超过30个字符</span></li>
-    <li><label>名称<span>*</span></label><input name="" type="text" class="dfinput" /><span class="remind">多个关键字用,隔开</span></li>
-    <li><label>描述<span>*</span></label><input name="" type="text" class="dfinput" /></li>
+    <li><label>产品分类序号<span>*</span></label><input name="id" value= ${id }  type="text"  readonly="readonly" class="dfinput"/><span class="remind">标题不能超过30个字符</span></li>
+    <li><label>名称<span>*</span></label><input name="name" value= ${name } type="text" class="dfinput" /><span class="remind">多个关键字用,隔开</span></li>
+    <li><label>描述<span>*</span></label><input name="dric" value= ${rek } type="text" class="dfinput" /></li>
     <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="确认保存"/>&nbsp; 
     <input name="" type="button" class="cancel" value="取消" /></li>
     </ul>
-    
+    </form>
     
     </div>
 </body>

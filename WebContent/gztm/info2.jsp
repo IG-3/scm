@@ -22,18 +22,18 @@
 				<th>产品名称</th>
 				<th>数量单位</th>
 				<th>产品数量</th>
-				<th>采购单价</th>
-				<th>明细总价</th>
+				<th>销售单价</th>
+				<th>产品明细总价</th>
 			</tr>
 				
 			<tr>
 				
-					<td >${poitem.productCode }</td>
-					<td>${poitem.pname }</td>
-					<td>${poitem.unitName}</td>
-					<td>${poitem.num }</td>
-					<td>${poitem.unitPrice }></td>
-					<td>${poitem.itemPrice }</td>
+					<td >${soitem.productCode}</td>
+					<td>${soitem.pname }</td>
+					<td>${soitem.unitName}</td>
+					<td>${soitem.num }</td>
+					<td>${soitem.unitPrice }></td>
+					<td>${soitem.itemPrice }</td>
 					
 			</tr>
 			

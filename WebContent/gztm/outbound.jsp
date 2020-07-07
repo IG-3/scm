@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="model.pomain"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%
@@ -5,13 +7,16 @@
 	//http://localhost:8080/工程路径/
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
-
+<base href="<%=basePath%>" >
 <meta charset="UTF-8">
 <title>网站后台管理系统</title>
-<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 
@@ -20,71 +25,72 @@
 	<div class="place">
 		<span>位置：</span>
 		<ul class="placeul">
-			<li><a href="#">产品管理</a></li>
-			<li>产品分类列表</li>
+			<li>采购管理</li>
+			<li>采购单了结</li>
 		</ul>
 	</div>
 
-	<div class="rightinfo">
-
-		<div class="tools">
-
-			<ul class="toolbar">
-				<li><a href="addGoodsClass.jsp"><img src="../images/t01.png" />添加</a></li>
-			</ul>
-
-		</div>
-
-
+	<div class="rightinfo">    
+	    <div class="itab" href="#tab">
+	  	<ul> 
+	    <li><a  class="selected" href="outboundServlet?x=1">货到付款</a></li> 
+	    <li><a href="outboundServlet?x=2">款到发货</a></li> 
+	    <li><a href="outboundServlet?x=3">预付款到发货</a></li> 
+	  	</ul>
+	    </div> 
+    </div>
+  		<div id="tab" class="tabson">
 		<table class="tablelist">
 			<thead>
 				<tr>
-					<th>序号<span class="sort"><img src="../images/px.gif" /></span></th>
-					<th>分类序列号</th>
-					<th>产品类别名称</th>
-					<th>描述</th>
+					<th>序号<span class="sort"><img src="images/px.gif" /></span></th>
+					<th>销售单编号</th>
+					<th>创建时间</th>
+					<th>客户名称</th>
+					<th>创建用户</th>
+					<th>附加费用</th>
+					<th>产品总价</th>
+					<th>销售单总价格</th>
+					<th>付款方式</th>
+					<th>最低预付款金额</th>
+					<th>处理状态</th>
 					<th>操作</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>1</td>
-					<td>c00001</td>
-					<td>大米</td>
-					<td>杭州</td>
-					<td><a href="javascript:void(0)" class="tablelink click">修改</a>
-							<a class="tablelink click">删除</a></td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>c00002</td>
-					<td>食用油</td>
-					<td>杭州</td>
-					<td><a href="#" class="tablelink click">修改</a>
-							<a href="#" class="tablelink click">删除</a></td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>c00001</td>
-					<td>矿泉水</td>
-					<td>杭州</td>
-					<td><a href="#" class="tablelink click">修改</a>
-							<a href="#" class="tablelink">删除</a></td>
-				</tr>
-				<tr>
-					<td>4</td>
-					<td>c00004</td>
-					<td>牛奶</td>
-					<td>杭州</td>
-					<td>
-						<a href="#" class="tablelink click">修改</a>
-							<a href="#" class="tablelink">删除</a>
-					</td>
-				</tr>
-
+			
+			
+			<c:forEach items="${list }" var="s" varStatus="abc">
+			
+			
+			<tr>
+				<td>1</td>
+					<td ><a href="outboundServlet3?sd=${s.soid }">${s.soid }</a></td>
+					<td>${s.createTime }</td>
+					<td>${s.cname}</td>
+					<td>${s.sname }</td>
+					<td>${s.tipFee }></td>
+					<td>${s.productTotal }</td>
+					<td>${s.poTotal }</td>
+					<td>${s.payType==2?'款到发货':(s.payType>2?'预付款发货':'货到付款') }</td>
+					<td>${s.prePayFee==0?'':s.prePayFee }</td>
+					<td>${s.status==1?'已付款' :'未付款' }</td>
+					<td><a href="outboundServlet2?id=${s.soid }&&name=${s.sname}" class="tablelink click">入库</a></td>
+			</tr>
+		
+			
+			</c:forEach>
+			
+		
+			
+			
+			
 
 			</tbody>
 		</table>
+		
+		
+		
 
 
 		<div class="pagin">
@@ -104,6 +110,7 @@
 				<li class="paginItem"><a href="javascript:;"><p
 						class="pagenxt"></p></a></li>
 			</ul>
+		
 		</div>
 
 
@@ -115,7 +122,7 @@
 			<div class="tipinfo">
 				<span><img src="../images/ticon.png" /></span>
 				<div class="tipright">
-					<p>是否确认对信息的修改 ？</p>
+					<p>是否确认了结 ？</p>
 					<cite>如果是请点击确定按钮 ，否则请点取消。</cite>
 				</div>
 			</div>
@@ -131,7 +138,14 @@
 
 
 	</div>
+	
+
+	
 	<script type="text/JavaScript" src="../js/jquery.js"></script>
+	<script type="text/JavaScript" src="../js/jquery.idTabs.min.js"></script> 
+	<script type="text/javascript"> 
+      $(".rightinfo ul").idTabs(); 
+    </script>
 	<script type="text/javascript">
 		$('.tablelist tbody tr:odd').addClass('odd');
 	</script>
@@ -155,6 +169,7 @@
 			});
 
 		});
+
 	</script>
 </body>
 </html>

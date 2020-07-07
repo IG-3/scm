@@ -43,7 +43,7 @@
 		<table class="tablelist">
 			<thead>
 				<tr>
-					<th>序号<span class="sort"><img src="../images/px.gif" /></span></th>
+					<th>序号<span class="sort"><img src="images/px.gif" /></span></th>
 					<th>采购单编号</th>
 					<th>创建时间</th>
 					<th>供应商名称</th>
@@ -65,7 +65,7 @@
 			
 			<tr>
 				<td>1</td>
-					<td ><a href="info.jsp">${s.poid }</a></td>
+					<td ><a href="inboundServlet5?sd=${s.poid }">${s.poid }</a></td>
 					<td>${s.createTime }</td>
 					<td>${s.vname}</td>
 					<td>${s.sname }</td>
@@ -75,7 +75,7 @@
 					<td>${s.payType==1?'货到付款' :'款到发货' }</td>
 					<td>${s. prePayFee==0?'':s.prePayFee }</td>
 					<td>${s.status==1?'已付款' :'未付款' }</td>
-					<td><a href="javascript:void(0)" class="tablelink click">入库</a></td>
+					<td><a href="inboundServlet4?id=${s.poid }&&name=${s.sname}" class="tablelink click">入库</a></td>
 			</tr>
 		
 			
@@ -88,6 +88,9 @@
 
 			</tbody>
 		</table>
+		
+		
+		
 
 
 		<div class="pagin">
@@ -135,6 +138,9 @@
 
 
 	</div>
+	
+
+	
 	<script type="text/JavaScript" src="../js/jquery.js"></script>
 	<script type="text/JavaScript" src="../js/jquery.idTabs.min.js"></script> 
 	<script type="text/javascript"> 

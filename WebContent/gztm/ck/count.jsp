@@ -5,13 +5,16 @@
 	//http://localhost:8080/工程路径/
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
 
 <meta charset="UTF-8">
 <title>网站后台管理系统</title>
-<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 
@@ -29,7 +32,7 @@
 		<table class="tablelist">
 			<thead>
 				<tr>
-					<th>序号<span class="sort"><img src="../images/px.gif" /></span></th>
+					<th>序号<span class="sort"><img src="images/px.gif" /></span></th>
 					<th>产品编号</th>
 					<th>产品名称</th>
 					<th>当前库存</th>
@@ -39,25 +42,23 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>1</td>
-					<td>pro0001</td>
-					<td>金龙鱼油</td>
-					<td>100</td>
-					<td>32</td>
-					<td>18</td>
-					<td><a href="changeCount.jsp" class="tablelink">盘点</a></td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>pro0002</td>
-					<td>稻花香大米</td>
-					<td>90</td>
-					<td>55</td>
-					<td>43</td>
-					<td><a href="changeCount.jsp" class="tablelink click">盘点</a></td>
-				</tr>
 				
+				<c:forEach items="${list }" var="s" varStatus="abc">
+			
+			
+			<tr>
+				<td>1</td>
+					<td >${s.productCode}</td>
+					<td>${s.name }</td>
+					<td>${s.num}</td>
+					<td>${s.poNum }</td>
+					<td>${s.soNum }></td>
+					<td><a href="changeCountServlet?id=${s.productCode}&&num=${s.num}" >更新</a></td>
+					
+			</tr>
+		
+			
+			</c:forEach>
 
 			</tbody>
 		</table>

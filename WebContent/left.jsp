@@ -30,8 +30,8 @@
 				<span><img src="images/leftico01.png" /></span>产品管理
 			</div>
 			<ul class="menuson">
-				<li><cite></cite><a href="gztm/category.jsp" target="rightFrame">产品分类列表</a><i></i></li>
-				<li><cite></cite><a href="gztm/product.jsp" target="rightFrame">产品列表</a><i></i></li>
+				<li><cite></cite><a href="categoryServlet" target="rightFrame">产品分类列表</a><i></i></li>
+				<li><cite></cite><a href="productServlet" target="rightFrame">产品列表</a><i></i></li>
 			</ul>
 		</dd>
 
@@ -54,10 +54,10 @@
 				<span><img src="images/leftico01.png" /></span>仓管管理
 			</div>
 			<ul class="menuson">
-				<li><cite></cite><a href="gztm/inbound.jsp" target="rightFrame">入库登记</a><i></i></li>
-				<li><cite></cite><a href="error.jsp" target="rightFrame">出库登记</a><i></i></li>
-				<li><cite></cite><a href="error.jsp" target="rightFrame">库存查询</a><i></i></li>
-				<li><cite></cite><a href="gztm/count.jsp" target="rightFrame">库存盘点</a><i></i></li>
+				<li><cite></cite><a href="inboundServlet" target="rightFrame">入库登记</a><i></i></li>
+				<li><cite></cite><a href="gztm/outbound.jsp" target="rightFrame">出库登记</a><i></i></li>
+				<li><cite></cite><a href="gztm/ck/ckquery.jsp" target="rightFrame">库存查询</a><i></i></li>
+				<li><cite></cite><a href="ckCheckServlet" target="rightFrame">库存盘点</a><i></i></li>
 			</ul>
 
 		</dd>

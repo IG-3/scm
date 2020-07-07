@@ -1,13 +1,11 @@
 package model;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.format.DecimalStyle;
 
-public class pomain implements Serializable {
+public class Somain {
 	
-	private BigDecimal poid;
-	private String venderCode;
+	private BigDecimal soid;
+	private String customerCode;
 	private String account;
 	private String createTime;
 	private float tipFee;
@@ -22,20 +20,19 @@ public class pomain implements Serializable {
 	private String payTime;
 	private String payUser;
 	private String prePayTime;
-	private String prePayUser;
+	private String prePayUSer;
 	private String endTime;
 	private String endUser;
-	private String vname;
+	private String cname;
 	private String sname;
 	
-	
-	public pomain(BigDecimal poid, String venderCode, String account, String createTime, float tipFee,
+	public Somain(BigDecimal soid, String customerCode, String account, String createTime, float tipFee,
 			float productTotal, float poTotal, int payType, float prePayFee, int status, String remark,
-			String stockTime, String stockUser, String payTime, String payUser, String prePayTime, String prePayUser,
+			String stockTime, String stockUser, String payTime, String payUser, String prePayTime, String prePayUSer,
 			String endTime, String endUser) {
 		super();
-		this.poid = poid;
-		this.venderCode = venderCode;
+		this.soid = soid;
+		this.customerCode = customerCode;
 		this.account = account;
 		this.createTime = createTime;
 		this.tipFee = tipFee;
@@ -50,18 +47,17 @@ public class pomain implements Serializable {
 		this.payTime = payTime;
 		this.payUser = payUser;
 		this.prePayTime = prePayTime;
-		this.prePayUser = prePayUser;
+		this.prePayUSer = prePayUSer;
 		this.endTime = endTime;
 		this.endUser = endUser;
 	}
 	
+	
 
-	public pomain(BigDecimal poid, String venderCode, String account, String createTime, float tipFee,
-			float productTotal, float poTotal, int payType, float prePayFee, int status,String vname,String sname) {
+	public Somain(BigDecimal soid, String createTime, float tipFee, float productTotal, float poTotal, int payType,
+			float prePayFee, int status, String cname, String sname) {
 		super();
-		this.poid = poid;
-		this.venderCode = venderCode;
-		this.account = account;
+		this.soid = soid;
 		this.createTime = createTime;
 		this.tipFee = tipFee;
 		this.productTotal = productTotal;
@@ -69,29 +65,30 @@ public class pomain implements Serializable {
 		this.payType = payType;
 		this.prePayFee = prePayFee;
 		this.status = status;
-		this.vname=vname;
-		this.sname=sname;
+		this.cname = cname;
+		this.sname = sname;
 	}
 
 
-	public pomain() {
+
+	public Somain() {
 		super();
 	}
 
-	public BigDecimal getPoid() {
-		return poid;
+	public BigDecimal getSoid() {
+		return soid;
 	}
 
-	public void setPoid(BigDecimal poid) {
-		this.poid = poid;
+	public void setSoid(BigDecimal soid) {
+		this.soid = soid;
 	}
 
-	public String getVenderCode() {
-		return venderCode;
+	public String getCustomerCode() {
+		return customerCode;
 	}
 
-	public void setVenderCode(String venderCode) {
-		this.venderCode = venderCode;
+	public void setCustomerCode(String customerCode) {
+		this.customerCode = customerCode;
 	}
 
 	public String getAccount() {
@@ -206,12 +203,12 @@ public class pomain implements Serializable {
 		this.prePayTime = prePayTime;
 	}
 
-	public String getPrePayUser() {
-		return prePayUser;
+	public String getPrePayUSer() {
+		return prePayUSer;
 	}
 
-	public void setPrePayUser(String prePayUser) {
-		this.prePayUser = prePayUser;
+	public void setPrePayUSer(String prePayUSer) {
+		this.prePayUSer = prePayUSer;
 	}
 
 	public String getEndTime() {
@@ -231,14 +228,17 @@ public class pomain implements Serializable {
 	}
 
 
-	public String getVname() {
-		return vname;
+
+	public String getCname() {
+		return cname;
 	}
 
 
-	public void setVname(String vname) {
-		this.vname = vname;
+
+	public void setCname(String cname) {
+		this.cname = cname;
 	}
+
 
 
 	public String getSname() {
@@ -246,10 +246,10 @@ public class pomain implements Serializable {
 	}
 
 
+
 	public void setSname(String sname) {
 		this.sname = sname;
 	}
-	
 	
 	
 

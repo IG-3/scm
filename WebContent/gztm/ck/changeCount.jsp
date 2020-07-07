@@ -27,15 +27,15 @@
     <div class="formbody">
     
     <div class="formtitle"><span>基本信息</span></div>
-    
+    <form action="changeCountServlet2">
     <ul class="forminfo">
-    <li><label>变化数量<span>*</span></label><input name="" type="text" class="dfinput" /><span class="remind">标题不能超过30个字符</span></li>
-    <li><label>变化类型<span>*</span></label><select><option>损耗</option><option>盈余</option></select></li>
-    <li><label>损益原因<span>*</span></label><input name="" type="text" class="dfinput" /></li>
+    <li><label>变化数量<span>*</span></label><input name="num" type="text" class="dfinput" /><span class="remind">标题不能超过30个字符</span></li>
+    <li><label>变化类型<span>*</span></label><select name="first"><option value="损耗">损耗</option><option value="盈余">盈余</option></select></li>
+    <li><label>损益原因<span>*</span></label><input name="yy" type="text" class="dfinput" /></li>
     <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="确认保存"/>&nbsp; 
     <input name="" type="button" class="cancel" value="取消" /></li>
     </ul>
-    
+    </form>
     
     </div>
     
